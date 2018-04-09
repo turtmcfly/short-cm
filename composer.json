@@ -1,5 +1,5 @@
 {
-    "name": "ignittion/short-cm",
+    "name": "ignittion/short",
     "description": "Library for working with the Short.cm service",
     "type": "library",
     "license": "MIT",
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ignittion\\Short": "src/"
+            "Ignittion\\Short\\": "src/"
         }
     }
 }
