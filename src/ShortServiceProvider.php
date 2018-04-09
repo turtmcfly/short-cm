@@ -21,7 +21,7 @@ class ShortServiceProvider extends ServiceProvider
             $domain = Config::get('shortcm.domain');
             $key    = Config::get('shortcm.key');
 
-            return new Short($api, $domain, $Key);
+            return new Short($api, $domain, $key);
         });
 
         
