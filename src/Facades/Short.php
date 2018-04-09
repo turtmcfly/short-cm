@@ -1,10 +1,10 @@
 <?php
 
-namespace Ignittion\Short;
+namespace Ignittion\Short\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class ShortFacade extends Facade
+class Short extends Facade
 {
     protected static function getFacadeAccessor()
     {
