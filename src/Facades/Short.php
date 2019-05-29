@@ -1,6 +1,6 @@
 <?php
 
-namespace Ignittion\Short\Facades;
+namespace Turtmcfly\Short\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ignittion\Short;
+namespace Turtmcfly\Short;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
@@ -24,6 +24,6 @@ class ShortServiceProvider extends ServiceProvider
             return new Short($api, $domain, $key);
         });
 
-        
+
     }
 }

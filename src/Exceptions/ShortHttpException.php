@@ -1,6 +1,6 @@
 <?php
 
-namespace Ignittion\Short\Exceptions;
+namespace Turtmcfly\Short\Exceptions;
 
 use Exception;
 use GuzzleHttp\Psr7\Response;
