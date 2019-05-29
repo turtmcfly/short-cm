@@ -1,5 +1,5 @@
 {
-    "name": "ignittion/short",
+    "name": "turtmcfly/short",
     "description": "Library for working with the Short.cm service",
     "type": "library",
     "license": "MIT",
@@ -7,6 +7,10 @@
         {
             "name": "ignittion",
             "email": "opensource@ignittion.com"
+        },
+        {
+            "name": "turtmcfly",
+            "email": "ian.turton@@amplewalrus.com"
         }
     ],
     "require": {
@@ -15,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ignittion\\Short\\": "src/"
+            "Turtmcfly\\Short\\": "src/"
         }
     }
 }
