@@ -1,6 +1,6 @@
 <?php
 
-namespace Turtmcfly\Short;
+namespace Ignittion\Short;
 
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\ClientException;

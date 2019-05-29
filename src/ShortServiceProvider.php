@@ -1,6 +1,6 @@
 <?php
 
-namespace Turtmcfly\Short;
+namespace Ignittion\Short;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
