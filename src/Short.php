@@ -9,7 +9,7 @@ use Ignittion\Short\Exceptions\ShortHttpException;
 
 /**
  * Short.cm URL shortening service API.
- * 
+ *
  * @package Short-cm
  * @author ignittion
  */
@@ -108,9 +108,9 @@ class Short
      *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/domain-api/list-domains
-     * 
+     *
+     * @see https://short.cm/api#/Domains/ApiDomainsGet
+     *
      * @return array
      */
     public function domainList() : array
@@ -124,8 +124,8 @@ class Short
 
     /**
      * Create a new short url.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/create-a-new-url
+     *
+     * @see https://short.cm/api#/Link%20editing/LinksPost
      *
      * @param string $originalURL
      * @param string $title
@@ -138,17 +138,20 @@ class Short
      * @param string $utmSource
      * @param string $utmMedium
      * @param string $utmCampaign
+     * @param string $utmTerm
+     * @param string $utmContent
      * @param string $domain
      * @return \stdClass
      */
+
     public function linkCreate(string $originalURL, string $title = null, string $path = null, array $tags = null,
             bool $allowDuplicates = null, string $expiresAt = null, string $expiredURL = null, string $password = null,
-            string $utmSource = null, string $utmMedium = null, string $utmCampaign = null, string $domain = null) : \stdClass
+            string $utmSource = null, string $utmMedium = null, string $utmCampaign = null, string $utmTerm = null, string $utmContent = null, string $domain = null) : \stdClass
     {
         try {
             $body   = [];
             foreach (['originalURL', 'title', 'path', 'tags', 'allowDuplicates', 'expiresAt', 'expiredURL', 'password', 'utmSource',
-                'utmMedium', 'utmCampaign', 'domain'] as $item) {
+                'utmMedium', 'utmCampaign', 'utmTerm', 'utmContent', 'domain'] as $item) {
                 if (! is_null($$item)) {
                     $body[$item]    = $$item;
                 }
@@ -161,11 +164,11 @@ class Short
 
     /**
      * Delete a short url.
-     * 
+     *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/delete-url
+     *
+     * @see https://short.cm/api#/Link%20editing/LinksByLinkIdDelete
      *
      * @param integer $linkId
      * @return void
@@ -181,12 +184,12 @@ class Short
 
     /**
      * Expand a short url by a given path.
-     * 
+     *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
      *
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/expand-api
-     * 
+     * @see https://short.cm/api#/Link%20queries/LinksExpandByDomainAndPathGet
+     *
      * @param string $path
      * @param string $domain
      * @return \stdClass
@@ -212,9 +215,9 @@ class Short
      *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/expand-api-by-long-url
-     * 
+     *
+     * @see https://short.cm/api#/Link%20queries/LinksByOriginalUrlByDomainAndOriginalURLGet
+     *
      * @param string $originalUrl
      * @param string $domain
      * @return \stdClass
@@ -237,11 +240,11 @@ class Short
 
     /**
      * Get statistics for a short url.
-     * 
+     *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/analytics-api
+     *
+     * @see https://short.cm/api#/Link%20statistics/LinksStatisticsAPIByLinkIdAndPeriodGet
      *
      * @param integer $linkId
      * @param string $period
@@ -260,11 +263,11 @@ class Short
 
     /**
      * Update an existing short url.
-     * 
+     *
      * @throws \Ignittion\Short\Exceptions\ShortHttpException when an
      *      \GuzzleHttp\Exception\ClientException is thrown.
-     * 
-     * @see https://shortcm.docs.apiary.io/#reference/0/link-api/update-existing-url
+     *
+     * @see https://short.cm/api#/Link%20editing/LinksByLinkIdPost
      *
      * @param integer $linkId
      * @param string $originalURL
@@ -275,7 +278,7 @@ class Short
      * @param string $winmobileURL
      * @return \stdClass
      */
-    public function linkUpdateExisting(int $linkId, string $originalURL, string $path = null, string $title = null, 
+    public function linkUpdateExisting(int $linkId, string $originalURL, string $path = null, string $title = null,
         string $iphoneURL = null, string $androidURL = null, string $winmobileURL = null) : \stdClass
     {
         try {
